@@ -5,7 +5,7 @@ import { UserService } from './service/user.service';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import configuration from '../config/configuration';
-import { jwtConstants } from './auth/constants';
+import { jwtConstants } from './guard/constants';
 
 @Module({
   imports: [
