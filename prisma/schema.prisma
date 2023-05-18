@@ -18,7 +18,7 @@ model User {
   gender    Int
   status    Int       @default(1) // 用户状态1正常 0冻结
   username  String    @unique @db.VarChar(255)
-  passwrod  String    @db.VarChar(255)
+  password  String    @db.VarChar(255)
 
   @@map("user")
 }

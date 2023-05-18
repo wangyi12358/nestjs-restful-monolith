@@ -1,7 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
-export class SourceItem {
+export class LoginReq {
   @IsNotEmpty()
-  src: string;
+  username: string;
   @IsNotEmpty()
-  prompt: string;
+  password: string;
 }
