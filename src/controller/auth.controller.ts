@@ -11,7 +11,9 @@ export class AuthController {
   }
 
   @Post('/login')
-  async login() {}
+  async login() {
+
+  }
 
   @UseGuards(AuthGuard)
   @Post('/logout')

@@ -9,14 +9,16 @@ datasource db {
 }
 
 model User {
-  id          Int       @id @default(autoincrement())
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime  @updatedAt @map("updated_at")
-  deletedAt   DateTime? @map("deleted_at")
-  email       String?   @db.VarChar(255)
-  age         Int
-  status      Int       @default(1) // 用户状态1正常 0冻结
-  accessToken String    @map("access_token")
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+  email     String?   @db.VarChar(255)
+  age       Int
+  gender    Int
+  status    Int       @default(1) // 用户状态1正常 0冻结
+  username  String    @unique @db.VarChar(255)
+  passwrod  String    @db.VarChar(255)
 
   @@map("user")
 }
