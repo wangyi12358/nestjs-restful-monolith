@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:wangyi12358@127.0.0.1:5432/nest-admin"
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+  email       String?   @db.VarChar(255)
+  age         Int
+  status      Int       @default(1) // 用户状态1正常 0冻结
+  accessToken String    @map("access_token")
+
+  @@map("user")
+}
