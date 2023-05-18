@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { UserController } from './controller/user.controller';
 import { AuthController } from './controller/auth.controller';
 import { UserService } from './service/user.service';
+import { PrismaService } from './service/prisma.service';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import configuration from '../config/configuration';
@@ -19,6 +20,6 @@ import { jwtConstants } from './guard/constants';
     }),
   ],
   controllers: [UserController, AuthController],
-  providers: [UserService],
+  providers: [UserService, PrismaService],
 })
 export class AppModule {}

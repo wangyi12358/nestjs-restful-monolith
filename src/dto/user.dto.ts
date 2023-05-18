@@ -19,4 +19,11 @@ export class CreateUserReq {
   @IsNotEmpty()
   @IsNumberString()
   gender: number;
+
+  role: number;
+}
+
+export class UpdateUserReq {
+  age: number;
+  gender: number;
 }

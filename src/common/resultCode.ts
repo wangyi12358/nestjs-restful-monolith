@@ -19,13 +19,7 @@ export class ResultCode {
   static NOT_AUTHORIZED: ResultCode = ResultCode.of(1005, '用户名密码错误!');
 
   // user
-  static CODE_NOT_FOUND: ResultCode = ResultCode.of(2000, 'code不存在!');
-
-  // task
-  static INSUFFICIENT_BALANCE: ResultCode = ResultCode.of(
-    3000,
-    '任务余额不足!',
-  );
+  static USERNAME_EXISTS: ResultCode = ResultCode.of(2000, 'username已存在!');
 
   constructor(code: number, desc: string) {
     this.code = code;
