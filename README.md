@@ -1,5 +1,5 @@
 # nest admin
-基于 nestjs，prisma，postgresql 
+基于 nestjs，prisma，postgresql 搭建
 
 ## 安装依赖
 
