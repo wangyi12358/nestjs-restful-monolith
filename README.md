@@ -1,4 +1,5 @@
 # nest admin
+基于 nestjs，prisma，postgresql 
 
 ## 安装依赖
 
@@ -18,9 +19,11 @@ $ pnpm run start:prod
 
 ## prisma使用
 ```bash
-$ pnpm run prisma:generate # 生成client目录
+# 生成client目录
+$ pnpm run prisma:generate
  
-$ pnpm run prisma # 会把schema.prisma定义的表结构生成到数据库、并生成client
+# 会把schema.prisma定义的表结构生成到数据库、并生成client
+$ pnpm run prisma
 ```
 
 ## 项目结构

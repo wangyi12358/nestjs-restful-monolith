@@ -7,7 +7,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
 import { Request } from 'express';
-import { User } from '../../prisma/client';
+import { User } from '@prisma/client';
 
 @Injectable()
 export class ManagerGuard implements CanActivate {

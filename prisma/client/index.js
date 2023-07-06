@@ -120,7 +120,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/wangyi/github/nest-admin/prisma/client",
+      "value": "/Users/wangyi/github/tpl/nest-admin/prisma/client",
       "fromEnvVar": null
     },
     "config": {
@@ -140,7 +140,8 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "dataProxy": false
+  "dataProxy": false,
+  "postinstall": false
 }
 
 const fs = require('fs')

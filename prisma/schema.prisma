@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:wangyi12358@127.0.0.1:5432/nest-admin"
+  url      = ""
 }
 
 model User {

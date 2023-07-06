@@ -10,12 +10,12 @@ import {
   Put,
   Request,
 } from '@nestjs/common';
-import { CreateUserReq, UpdateUserReq, UserPageReq } from '../dto/user.dto';
-import { ManagerGuard } from '../guard/manager.guard';
-import { UserService } from '../service/user.service';
-import { Result } from '../common/result';
-import { AuthGuard } from '../guard/auth.guard';
-import { ResultCode } from '../common/resultCode';
+import { CreateUserReq, UpdateUserReq, UserPageReq } from '~/dto/user.dto';
+import { ManagerGuard } from '~/guard/manager.guard';
+import { UserService } from '~/service/user.service';
+import { Result } from '~/common/result';
+import { AuthGuard } from '~/guard/auth.guard';
+import { ResultCode } from '~/common/resultCode';
 
 @Controller('/api/user')
 export class UserController {

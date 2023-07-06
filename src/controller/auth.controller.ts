@@ -6,11 +6,11 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common';
-import { Result } from '../common/result';
-import { ResultCode } from '../common/resultCode';
-import { AuthGuard } from '../guard/auth.guard';
-import { LoginReq } from '../dto/auth.dto';
-import { UserService } from '../service/user.service';
+import { Result } from '~/common/result';
+import { ResultCode } from '~/common/resultCode';
+import { AuthGuard } from '~/guard/auth.guard';
+import { LoginReq } from '~/dto/auth.dto';
+import { UserService } from '~/service/user.service';
 import { JwtService } from '@nestjs/jwt';
 
 @Controller('/api')
