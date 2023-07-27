@@ -9,7 +9,7 @@ export class UserService {
   constructor(private prismaService: PrismaService) {}
 
   findOneByUsername(username: string) {
-    return this.prismaService.client.user.findUnique({
+    return this.prismaService.user.findUnique({
       where: {
         username,
       },
@@ -19,12 +19,12 @@ export class UserService {
   async page(query: UserPageReq) {
     const where: Partial<User> = {};
     if (query.username) where.username = query.username;
-    const list = await this.prismaService.client.user.findMany({
+    const list = await this.prismaService.user.findMany({
       where,
       skip: query.pageSize,
       take: query.take,
     });
-    const total = await this.prismaService.client.user.count({ where });
+    const total = await this.prismaService.user.count({ where });
     return {
       list,
       total,
@@ -32,7 +32,7 @@ export class UserService {
   }
 
   create(req: CreateUserReq) {
-    return this.prismaService.client.user.create({
+    return this.prismaService.user.create({
       data: {
         username: req.username,
         password: this.passwordMd5(req.password),
@@ -64,7 +64,7 @@ export class UserService {
   }
 
   delete(id: number) {
-    return this.prismaService.client.user.delete({
+    return this.prismaService.user.delete({
       where: {
         id,
       },
@@ -72,7 +72,7 @@ export class UserService {
   }
 
   login(username: string, password: string) {
-    return this.prismaService.client.user.findFirst({
+    return this.prismaService.user.findFirst({
       where: {
         username,
         password: this.passwordMd5(password),
