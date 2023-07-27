@@ -44,7 +44,7 @@ export class UserService {
   }
 
   disabled(id: number) {
-    return this.prismaService.client.user.update({
+    return this.prismaService.user.update({
       where: {
         id,
       },
@@ -55,7 +55,7 @@ export class UserService {
   }
 
   update(id: number, req: UpdateUserReq) {
-    return this.prismaService.client.user.update({
+    return this.prismaService.user.update({
       where: {
         id,
       },
