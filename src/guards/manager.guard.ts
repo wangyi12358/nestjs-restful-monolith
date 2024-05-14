@@ -5,12 +5,17 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { jwtConstants } from './constants';
+import { User } from '@prisma/client';
 import { Request } from 'express';
+import { jwtConstants } from '../common/constants';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class ManagerGuard implements CanActivate {
   constructor(private jwtService: JwtService) {}
+
+  handleError() {
+    throw new UnauthorizedException();
+  }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
@@ -19,12 +24,13 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException();
     }
     try {
-      const payload = await this.jwtService.verifyAsync(token, {
+      const payload: User = await this.jwtService.verifyAsync(token, {
         secret: jwtConstants.secret,
       });
-      // We're assigning the payload to the request object here
-      // so that we can access it in our route handlers
-      request['user'] = payload;
+      if (payload.role !== 2) {
+        // 非管理员账户，无权限
+        this.handleError();
+      }
     } catch {
       throw new UnauthorizedException();
     }
