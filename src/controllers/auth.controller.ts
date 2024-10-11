@@ -6,12 +6,12 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common';
-import { Result } from '~/common/result';
-import { ResultCode } from '~/common/resultCode';
-import { AuthGuard } from '~/guard/auth.guard';
-import { LoginReq } from '~/dto/auth.dto';
-import { UserService } from '~/service/user.service';
 import { JwtService } from '@nestjs/jwt';
+import { Result } from '~/common/result';
+import { ResultCode } from '~/common/result-code';
+import { LoginReq } from '~/dto';
+import { AuthGuard } from '~/guards/auth.guard';
+import { UserService } from '~/services';
 
 @Controller('/api')
 export class AuthController {

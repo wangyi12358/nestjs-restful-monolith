@@ -1,21 +1,21 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  UseGuards,
-  Query,
+  Controller,
   Delete,
+  Get,
   Param,
+  Post,
   Put,
+  Query,
   Request,
+  UseGuards,
 } from '@nestjs/common';
-import { CreateUserReq, UpdateUserReq, UserPageReq } from '~/dto/user.dto';
-import { ManagerGuard } from '~/guard/manager.guard';
-import { UserService } from '~/service/user.service';
 import { Result } from '~/common/result';
-import { AuthGuard } from '~/guard/auth.guard';
-import { ResultCode } from '~/common/resultCode';
+import { ResultCode } from '~/common/result-code';
+import { CreateUserReq, UpdateUserReq, UserPageReq } from '~/dto/user.dto';
+import { AuthGuard } from '~/guards/auth.guard';
+import { ManagerGuard } from '~/guards/manager.guard';
+import { UserService } from '~/services';
 
 @Controller('/api/user')
 export class UserController {

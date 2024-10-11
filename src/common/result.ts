@@ -1,4 +1,4 @@
-import { ResultCode } from './resultCode';
+import { ResultCode } from './result-code';
 
 export class Result<T> {
   constructor(data?: T, resultCode?: ResultCode) {
@@ -24,10 +24,11 @@ export class Result<T> {
   }
 
   static fail(resultCode?: ResultCode) {
-    if (!resultCode) {
-      resultCode = ResultCode.ERROR;
+    let _resultCode = resultCode;
+    if (!_resultCode) {
+      _resultCode = ResultCode.ERROR;
     }
-    return new Result<unknown>(null, resultCode);
+    return new Result<unknown>(null, _resultCode);
   }
 
   // static ok

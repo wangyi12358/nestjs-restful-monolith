@@ -1,11 +1,10 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./client"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = ""
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -14,11 +13,12 @@ model User {
   updatedAt DateTime  @updatedAt @map("updated_at")
   deletedAt DateTime? @map("deleted_at")
   age       Int
-  gender    Int // 1男性 0女性
-  status    Int       @default(1) // 用户状态1正常 0冻结
+  gender    Int
+  status    Int       @default(1)
   username  String    @unique @db.VarChar(255)
   password  String    @db.VarChar(255)
-  role      Int       @default(1) // 1为普通用户，2为管理员用户
+  role      Int       @default(1)
+  salt      String
 
   @@map("user")
 }

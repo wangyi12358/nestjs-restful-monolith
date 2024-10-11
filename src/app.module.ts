@@ -1,20 +1,15 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
-import configuration from '../config/configuration';
+import { JWT_EXPIRES_DAYS, JWT_SECRET } from './common/constants';
 import * as controllers from './controllers';
-import { jwtConstants } from './guard/constants';
 import * as services from './services';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      load: [configuration],
-    }),
     JwtModule.register({
       global: true,
-      secret: jwtConstants.secret,
-      signOptions: { expiresIn: '2 days' },
+      secret: JWT_SECRET,
+      signOptions: { expiresIn: `${JWT_EXPIRES_DAYS} days` },
     }),
   ],
   controllers: Object.values(controllers),
