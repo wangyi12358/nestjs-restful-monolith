@@ -7,7 +7,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { User } from '@prisma/client';
 import { Request } from 'express';
-import { jwtConstants } from '../common/constants';
+import { JWT_SECRET } from '../common/constants';
 
 @Injectable()
 export class ManagerGuard implements CanActivate {
@@ -25,7 +25,7 @@ export class ManagerGuard implements CanActivate {
     }
     try {
       const payload: User = await this.jwtService.verifyAsync(token, {
-        secret: jwtConstants.secret,
+        secret: JWT_SECRET,
       });
       if (payload.role !== 2) {
         // 非管理员账户，无权限

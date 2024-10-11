@@ -8,6 +8,13 @@ Base on Nest.js, Prisma, PostgreSQL to build a monolith project
 $ pnpm install
 ```
 
+## Configuration
+
+```bash
+# Copy .env.example to .env
+$ cp .env.example .env
+```
+
 ## Running the app
 
 ```bash
