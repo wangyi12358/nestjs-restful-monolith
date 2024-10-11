@@ -1,2 +1,0 @@
-database:
-  url: postgresql://postgres:wangyi12358@127.0.0.1:5432/nest-admin
